@@ -12,6 +12,6 @@ WORKDIR /app
 RUN wget -O /mnt/model.tar.gz https://github.com/PyUnit/pyunit-chatRobot/releases/download/v1.0/model.tar.gz && \
     tar -zxvf /mnt/model.tar.gz  -C /app/ && \
     rm -rf /mnt/model.tar.gz && \
-    pip3 install --no-cache-dir -r /requirements.txt  && \
+    pip3 install --no-cache-dir -r /requirements.txt
 
 CMD ["python3","main.py"]
