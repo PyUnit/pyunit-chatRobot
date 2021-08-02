@@ -1,0 +1,21 @@
+name: pyunit-chatRobot
+
+on: push
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 下载代码
+        uses: actions/checkout@master
+
+      - name: 构建Docker并上传到DockerHub
+        uses: docker/build-push-action@v1.1.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: jtyoui/pyunit-ner
+          tag_with_ref: true
+          tag_with_sha: true
